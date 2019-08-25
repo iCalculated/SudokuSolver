@@ -51,10 +51,11 @@ def check_puzzle():
                 raise Exception("Square found with improper sum.")
 
 fin = open("puzzles.txt")
+data = fin.readlines()
 
-puzzles = fin.readlines()
-puzzle = puzzles[1:10]
-
+euler = 0
+#for number in range(0,50):
+puzzle = data[41:50]
 puzzle = [list(row.strip()) for row in puzzle]
 
 print_puzzle()
@@ -72,7 +73,11 @@ while todo > 0:
                 puzzle[row][column] = perms(row,column)[0]
                 todo -= 1
 check_puzzle()
+
+euler += int(puzzle[0][0]) * 100 + int(puzzle[0][1]) * 10 + int(puzzle[0][2])
 print_puzzle()
+
+print(euler)
 
 
 
